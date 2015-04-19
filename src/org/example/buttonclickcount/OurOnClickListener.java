@@ -5,13 +5,19 @@ import android.view.View.OnClickListener;
 
 public class OurOnClickListener implements OnClickListener {
 	MainActivity caller;
+	private int count;
 
 	public OurOnClickListener(MainActivity activity) {
 		this.caller = activity;
+		this.count = 0;
 	}
 	
 	public void onClick(View view) {
-		caller.theTextView.setText("The button got clicked");
+		count = count +1;
+		String outputString = "The button has been clicked " + count + " time";
+		if(count != 1) {
+			outputString += "s";
+		}
+		caller.theTextView.setText(outputString);
 	}
-
 }
